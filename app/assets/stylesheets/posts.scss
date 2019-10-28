@@ -1,3 +1,72 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+    font-size: 12px;
+}
+
+ul, ol {
+    margin: 0;
+    padding: 0
+}
+
+a {
+    text-decoration: none;
+    color: #5fa9f2;
+
+    &:active {
+        text-decoration: none;
+    }
+}
+
+button {
+    cursor: pointer;
+
+    &:focus,
+    &:active {
+        box-shadow: none !important;
+        outline: 0 !important;
+    }
+}
+
+.btn {
+    font-size: 14px;
+}
+
+.btn-secondary {
+    background-color: #ccc;
+    border-color: #868e96;
+    border-radius: 3px;
+}
+
+.btn a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.blog-main {
+	background-color: lightgray;
+
+	&__header{
+		color: #337ab7;
+	}
+	
+	&__nav {
+		margin-top:20px;
+	
+		h5 {
+			color: #337ab7;
+		}
+	}
+	
+	&__content-search {
+		margin-top:10px;
+	}
+	
+	&__comment-link-header {
+		margin-bottom:20px;
+	}
+}

@@ -1,1 +1,21 @@
-<!-- View for showing a single `Post` -->
+<div class="container">
+	<div class="blog-main col-sm-12">
+		<%= render 'shared/header' %>
+		<%= render 'shared/home' %>
+    </div>
+
+	<div class="col-sm-11 col-xs-12">
+  		<h4 class="text-center"><%= @post.title %></h4>
+  		<h5 class="text-center"><%= @post.created_at.strftime('%b %d, %Y') %></h5>
+  		<div><%= raw @post.body %></div>
+	</div>
+
+	<div class="col-sm-11 col-xs-12">
+		<h4>Comments</h4>
+		<%= render @post.comments %>
+	</div>
+	<div class="col-sm-11 col-xs-12">
+		<h4>Add Comment</h4>
+		<%= render 'comments/form' %>
+	</div>
+</div>

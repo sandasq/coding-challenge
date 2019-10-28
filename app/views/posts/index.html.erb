@@ -1,1 +1,39 @@
-<!-- View for showing all `Post` -->
+<div class="container">
+	<div class="blog-main col-sm-12">
+		<%= render 'shared/header' %>
+		<%= render 'shared/addpost' %>
+    </div>
+
+	<div class="blog-main__content col-sm-12">
+    	<div class="blog-main__content-search pull-right">
+    		<%= form_tag(posts_path, method: "get") do %>
+    		<span class="blog-main__header"><%= label_tag(:search, "Search by Title") %></span>
+    		<span><%= text_field_tag(:search, params[:search]) %></span>
+    		<span><%= submit_tag "Search", :name => nil %></span>
+    		<% end %>
+    	</div>
+    	
+    	<% @posts.each do |post| %>
+    	<div class="col-xs-12">
+	    	<div class="text-center">
+      			<h2><%= post.title %></h2>
+      			<h6><%= post.created_at.strftime('%b %d, %Y') %></h6>
+    		</div>
+    		
+    		<div>
+        		<%= raw(post.body).truncate(120) %>
+      		</div>
+    		
+           <div class="pull-right">
+        		<span><%= link_to "Comments", post_path(post) %></span>
+        		<span>(<%= post.comments.length %>)</span>
+      		</div>
+      
+      		<div><%= link_to 'Remove Post', post_path(post),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+            </div>
+    	</div>
+  		<% end %>
+	</div>
+</div>
